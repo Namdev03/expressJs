@@ -5,6 +5,9 @@ app.listen(3000,()=>{
     
 })
 app.set('view engine','ejs')
+// =====middelwire======
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 app.get("/",(req,res)=>{
     res.json({
         name:"namdev",
@@ -41,3 +44,6 @@ app.get("/search",(req,res)=>{
 app.get("/user",(req,res)=>{
  res.render('user')
 });
+app.get('/namdev',(req,res)=>{
+    res.send(req.hostname)
+})
